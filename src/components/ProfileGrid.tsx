@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
-import { Plus } from "lucide-react";
+import { Plus, RotateCcw, TriangleAlert } from "lucide-react";
 
 import ProfileCard from "./ProfileCard";
 import NewProfileModal from "./NewProfileModal";
@@ -18,12 +18,15 @@ export default function ProfileGrid({
 }: ProfileGridProps) {
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   useEffect(() => {
     loadProfiles();
   }, []);
 
   async function loadProfiles() {
+    setLoadError(null);
+
     try {
       const raw = await invoke<Profile[]>("get_profiles");
 
@@ -48,9 +51,21 @@ export default function ProfileGrid({
       setProfiles(withAvatars);
     } catch (error) {
       console.error("Failed to load profiles:", error);
+      // Rust rejects with a plain string — show it instead of the empty
+      // state, which would wrongly invite the user to create a profile.
+      setLoadError(typeof error === "string" ? error : String(error));
     } finally {
       setLoading(false);
     }
+  }
+
+  /**
+   * Re-runs loadProfiles after a failure. Resetting `loading` first is
+   * necessary because the initial attempt already flipped it to false.
+   */
+  async function handleRetry() {
+    setLoading(true);
+    await loadProfiles();
   }
 
   async function handleProfileClick(profile: Profile) {
@@ -136,6 +151,41 @@ export default function ProfileGrid({
     return (
       <div className="flex justify-center py-24 text-muted-foreground">
         Loading profiles...
+      </div>
+    );
+  }
+
+  if (loadError) {
+    return (
+      <div className="flex flex-col items-center justify-center py-16 px-4 text-center animate-in fade-in duration-150 ease-out">
+        <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-dashed border-border bg-card/30 text-muted-foreground/60">
+          <TriangleAlert size={28} strokeWidth={1.5} />
+        </div>
+
+        <h3 className="text-lg font-medium tracking-tight text-foreground mb-2">
+          Couldn&rsquo;t Load Profiles
+        </h3>
+
+        <p className="text-sm text-muted-foreground font-normal max-w-md mb-6 leading-relaxed break-words">
+          {loadError}
+        </p>
+
+        <button
+          onClick={handleRetry}
+          className="
+            flex items-center gap-1.5
+            rounded-xl
+            border border-border
+            px-5 py-2
+            text-sm font-medium text-foreground
+            transition-colors duration-150
+            hover:bg-card
+            shadow-sm
+          "
+        >
+          <RotateCcw size={14} />
+          Try Again
+        </button>
       </div>
     );
   }
