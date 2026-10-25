@@ -167,7 +167,7 @@ export default function SettingsPage({ theme, onThemeChange }: Props) {
                   icon={<Github size={13} />}
                   label="GitHub"
                   onClick={() =>
-                    openUrl("https://github.com/dhanush-devx/zen-profile")
+                    openUrl("https://github.com/dhanushonchain/Zen-profile")
                   }
                 />
                 <OutlineButton
@@ -176,7 +176,7 @@ export default function SettingsPage({ theme, onThemeChange }: Props) {
                   label="Report an Issue"
                   onClick={() =>
                     openUrl(
-                      "https://github.com/dhanush-devx/zen-profile/issues/new"
+                      "https://github.com/dhanushonchain/Zen-profile/issues/new"
                     )
                   }
                 />
