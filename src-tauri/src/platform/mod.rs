@@ -120,7 +120,7 @@ mod tests {
         let detected = Ok(PathBuf::from("/usr/bin/zen"));
         assert_eq!(
             resolve_zen_browser(Some(existing_path()), detected),
-            existing_path()
+            Ok(existing_path())
         );
     }
 
