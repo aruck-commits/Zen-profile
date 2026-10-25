@@ -103,13 +103,14 @@ fn setup_macos_menu(app: &mut tauri::App) -> Result<(), Box<dyn std::error::Erro
             let _ = app_handle.emit("menu-new-profile", ());
         }
         "github" => {
-            let _ = app_handle
-                .opener()
-                .open_url("https://github.com/dhanush-devx/zen-profile", None::<&str>);
+            let _ = app_handle.opener().open_url(
+                "https://github.com/dhanushonchain/Zen-profile",
+                None::<&str>,
+            );
         }
         "report_issue" => {
             let _ = app_handle.opener().open_url(
-                "https://github.com/dhanush-devx/zen-profile/issues/new",
+                "https://github.com/dhanushonchain/Zen-profile/issues/new",
                 None::<&str>,
             );
         }

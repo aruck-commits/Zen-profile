@@ -1,8 +1,8 @@
 [package]
 name = "zen-profile"
 version = "0.2.0"
-description = "ZenProfile – A native companion for Zen Browser"
-authors = ["you"]
+description = "A beautiful native Zen Browser profile launcher built with Tauri, React and Rust"
+authors = ["Dhanush (@dhanushonchain)"]
 edition = "2021"
 
 [lib]

@@ -8,14 +8,14 @@
 
 Create, launch, rename, and customize Zen Browser profiles from one beautiful native desktop application.
 
-[![CI](https://github.com/dhanush-devx/Zen-profile/actions/workflows/ci.yml/badge.svg)](https://github.com/dhanush-devx/Zen-profile/actions/workflows/ci.yml)
-[![Release](https://github.com/dhanush-devx/Zen-profile/actions/workflows/release.yml/badge.svg)](https://github.com/dhanush-devx/Zen-profile/actions/workflows/release.yml)
+[![CI](https://github.com/dhanushonchain/Zen-profile/actions/workflows/ci.yml/badge.svg)](https://github.com/dhanushonchain/Zen-profile/actions/workflows/ci.yml)
+[![Release](https://github.com/dhanushonchain/Zen-profile/actions/workflows/release.yml/badge.svg)](https://github.com/dhanushonchain/Zen-profile/actions/workflows/release.yml)
 
 ![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-blue)
 ![Tauri](https://img.shields.io/badge/Tauri-v2-24C8DB?logo=tauri)
 ![Rust](https://img.shields.io/badge/Rust-000000?logo=rust)
 ![React](https://img.shields.io/badge/React-61DAFB?logo=react)
-![License](https://img.shields.io/github/license/dhanush-devx/Zen-profile)
+![License](https://img.shields.io/github/license/dhanushonchain/Zen-profile)
 
 </div>
 
@@ -83,7 +83,7 @@ Download the latest release for your platform.
 
 ### Latest Release
 
-https://github.com/dhanush-devx/Zen-profile/releases/latest
+https://github.com/dhanushonchain/Zen-profile/releases/latest
 
 ---
 
@@ -99,7 +99,7 @@ https://github.com/dhanush-devx/Zen-profile/releases/latest
 Clone the repository
 
 ```bash
-git clone https://github.com/dhanush-devx/Zen-profile.git
+git clone https://github.com/dhanushonchain/Zen-profile.git
 
 cd Zen-profile
 ```
